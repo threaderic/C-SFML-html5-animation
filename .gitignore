@@ -4,6 +4,9 @@ _builds
 _builds\*
 build
 build\*
+.sconsign.dblite
+build-scons
+build-scons\*
 cmake-build-release
 cmake-build-release\*
 cmake-build-debug
