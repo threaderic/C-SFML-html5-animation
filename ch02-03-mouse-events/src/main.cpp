@@ -5,14 +5,20 @@
 #endif
 
 #include <iostream>
+
 int main() 
 {
 	sf::Window window(sf::VideoMode(800,600), "Mouse Events", sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(60);
+    window.setVerticalSyncEnabled(true);
+    sf::Time t1 = sf::milliseconds(10);
+
 	sf::Clock clickClock;
+    
 
 	while (window.isOpen()) 
 	{
+            sf::sleep(t1);
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
