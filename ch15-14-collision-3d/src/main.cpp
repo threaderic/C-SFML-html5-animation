@@ -1,8 +1,15 @@
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
+#include "Ball3d.h"
+
 #include <iostream>
 #include <random>
 #include <algorithm>
-#include "SFML\Graphics.hpp"
-#include "ball3d.h"
+
 
 float fl = 250,
         vpX = 0,
@@ -14,7 +21,7 @@ float fl = 250,
         front = -200,
         back = 200;
 
-int numBalls = 20;
+int numBalls = 200;
 std::vector<Ball3d> balls;
 
 void Move(Ball3d &ball) {
@@ -80,7 +87,7 @@ int main() {
     sf::ContextSettings context;
     context.antialiasingLevel = 8;
 
-    sf::RenderWindow window(sf::VideoMode(400, 400), "Collision 3D", sf::Style::Titlebar | sf::Style::Close,
+    sf::RenderWindow window(sf::VideoMode(1980, 1080), "Collision 3D", sf::Style::Titlebar | sf::Style::Close,
                             context);
     window.setFramerateLimit(60);
 
