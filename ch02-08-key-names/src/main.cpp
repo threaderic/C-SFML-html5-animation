@@ -1,5 +1,11 @@
-#include "SFML\Graphics.hpp"
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
 #include <iostream>
+
 int main() 
 {
 	sf::Window window(sf::VideoMode(800,600), "Key Names", sf::Style::Titlebar | sf::Style::Close);

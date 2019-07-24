@@ -4,3 +4,4 @@ SConscript('ch02-04-mouse-position/SConscript', variant_dir='build-scons/ch02-04
 SConscript('ch02-06-keyboard-events/SConscript', variant_dir='build-scons/ch02-06-keyboard-events', duplicate=0)
 SConscript('ch02-07-key-codes/SConscript', variant_dir='build-scons/ch02-07-key-codes', duplicate=0)
 SConscript('ch15-14-collision-3d/SConscript', variant_dir='build-scons/ch15-14-collision-3d', duplicate=0)
+SConscript('ch15-15-collision-3d-OpenGL/SConscript', variant_dir='build-scons/ch15-15-collision-3d-OpenGL', duplicate=0)
