@@ -4,6 +4,7 @@
 #if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
     #include "SFML\Graphics.hpp"
 #elif __linux__
+    #include <SFML/Window.hpp>
     #include <SFML/Graphics.hpp>
     #include <SFML/OpenGL.hpp>
 #endif
@@ -21,7 +22,7 @@ std::string resourcesDir()
 #ifdef SFML_SYSTEM_IOS
     return "";
 #else
-    return "ch15-15-collision-3d-OpenGL/resources/";
+    return "ch15-15-3D-OpenGL/resources/";
 #endif
 }
 
@@ -41,8 +42,13 @@ int main()
         // Request a 24-bits depth buffer when creating the window
         sf::ContextSettings contextSettings;
         contextSettings.depthBits = 24;
-        contextSettings.sRgbCapable = sRgb;
-        contextSettings.antialiasingLevel =8;
+        contextSettings.stencilBits= 8;
+        contextSettings.antialiasingLevel = 4;
+        contextSettings.majorVersion = 3;
+        contextSettings.minorVersion = 0;
+        contextSettings.attributeFlags = false;
+        contextSettings.sRgbCapable = true;
+        
 
         // Create the main window
         sf::RenderWindow window(sf::VideoMode(500, 500), "SFML graphics with OpenGL", sf::Style::Default, contextSettings);
@@ -53,7 +59,7 @@ int main()
         backgroundTexture.setSrgb(sRgb);
         //if (!backgroundTexture.loadFromFile(resourcesDir() + "background.jpg"))
         //    return EXIT_FAILURE;        
-        if (!backgroundTexture.loadFromFile("ch15-15-collision-3d-OpenGL/resources/background.png"))
+        if (!backgroundTexture.loadFromFile(resourcesDir() + "background.png"))
             return EXIT_FAILURE;
         sf::Sprite background(backgroundTexture);
 
@@ -64,6 +70,9 @@ int main()
         sf::Text text("SFML / OpenGL demo", font);
         sf::Text sRgbInstructions("Press space to toggle sRGB conversion", font);
         sf::Text mipmapInstructions("Press return to toggle mipmapping", font);
+        text.setCharacterSize(20);
+        sRgbInstructions.setCharacterSize(20);
+        mipmapInstructions.setCharacterSize(20);
         text.setFillColor(sf::Color(255, 255, 255, 170));
         sRgbInstructions.setFillColor(sf::Color(255, 255, 255, 170));
         mipmapInstructions.setFillColor(sf::Color(255, 255, 255, 170));
@@ -73,13 +82,14 @@ int main()
 
         // Load a texture to apply to our 3D cube
         sf::Texture texture;
-        if (!texture.loadFromFile(resourcesDir() + "texture.png"))
+        if (!texture.loadFromFile(resourcesDir() + "sfml-icon-big.png"))
             return EXIT_FAILURE;
 
         // Attempt to generate a mipmap for our cube texture
         // We don't check the return value here since
         // mipmapping is purely optional in this example
-        texture.generateMipmap();
+        if (!texture.generateMipmap())
+            return EXIT_FAILURE;
 
         // Make the window the active window for OpenGL calls
         window.setActive(true);
@@ -198,7 +208,7 @@ int main()
                     if (mipmapEnabled)
                     {
                         // We simply reload the texture to disable mipmapping
-                        if (!texture.loadFromFile(resourcesDir() + "texture.png"))
+                        if (!texture.loadFromFile(resourcesDir() + "sfml-logo-big.png"))
                             return EXIT_FAILURE;
 
                         mipmapEnabled = false;
@@ -206,7 +216,9 @@ int main()
                     else
                     {
                         //texture.generateMipmap();
-
+                        // We simply reload the texture to disable mipmapping
+                        if (!texture.loadFromFile(resourcesDir() + "sfml-icon-big.png"))
+                            return EXIT_FAILURE;
                         mipmapEnabled = true;
                     }
                 }
