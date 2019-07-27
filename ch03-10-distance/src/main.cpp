@@ -1,4 +1,9 @@
-#include <SFML/Graphics.hpp>
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
 #include <cmath>
 #include <ctime>
 #include <iostream>
@@ -23,7 +28,7 @@ int main()
 	window.setFramerateLimit(60);
 
 	sf::Font font;
-	if (!font.loadFromFile("res/cour.ttf"))
+	if (!font.loadFromFile("./ch03-10-distance/res/cour.ttf"))
 	{
 		std::cout << "Error loading cour.ttf file" << std::endl;
 		return -1;
