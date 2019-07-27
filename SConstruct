@@ -17,3 +17,5 @@ SConscript('ch03-10-distance/SConscript', variant_dir='build-scons/ch03-10-dista
 SConscript('ch03-11-mouse-distance/SConscript', variant_dir='build-scons/ch03-11-mouse-distance', duplicate=0)
 SConscript('ch04-01-drawing-app/SConscript', variant_dir='build-scons/ch04-01-drawing-app', duplicate=0)
 SConscript('ch04-02-drawing-curves/SConscript', variant_dir='build-scons/ch04-02-drawing-curves', duplicate=0)
+SConscript('ch04-03-curve-through-point/SConscript', variant_dir='build-scons/ch04-03-curve-through-point', duplicate=0)
+SConscript('ch04-04-multi-curve-1/SConscript', variant_dir='build-scons/ch04-04-multi-curve-1', duplicate=0)

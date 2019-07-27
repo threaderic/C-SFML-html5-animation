@@ -27,7 +27,7 @@ int main()
 	window.setFramerateLimit(60);
 
 	sf::Font font;
-	if (!font.loadFromFile("./ch03-11-mouse-distance/res/cour.ttf"))
+	if (!font.loadFromFile("ch03-11-mouse-distance/res/cour.ttf"))
 	{
 		std::cout << "Error loading cour.ttf file" << std::endl;
 		return -1;
