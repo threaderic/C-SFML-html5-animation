@@ -18,7 +18,7 @@ for filename in lists: # loop through all the files and folders
         
 print(lines_of_text)
 
-ItemsToRemove=["shared-deps","_Template","build-scons",".idea",".idea","_builds","build","cmake-build-release","cmake-build-debug"]
+ItemsToRemove=["shared-deps","_Template","build-scons",".git",".idea",".idea","_builds","build","cmake-build-release","cmake-build-debug"]
 
 for x in ItemsToRemove :
     if x in lines_of_text: lines_of_text.remove(x)
@@ -40,5 +40,5 @@ fh.writelines(lines_of_text)
 fh.close() 
 
 #launch scons
-p = subprocess.Popen('scons', shell=True)
-sts = os.waitpid(p.pid, 0)
+#p = subprocess.Popen('scons', shell=True)
+#sts = os.waitpid(p.pid, 0)

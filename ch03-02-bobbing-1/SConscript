@@ -19,6 +19,7 @@ elif env['PLATFORM'] == 'posix':
     env.Decider('content')
 
 src_files = Glob("./src/*.cpp")
+src_files += Glob("./src/*/*.cpp")
 
 objects=env.Object(source=src_files)
 
@@ -31,5 +32,5 @@ def DefineProgram(name, main):
     env.AlwaysBuild(run)
     env.Default(target)
 
-DefineProgram('bin/ch02-03-mouse-events', ['./src/main.cpp'])
+DefineProgram('bin/ch03-02-bobbing-1', ['./src/main.cpp'])
 

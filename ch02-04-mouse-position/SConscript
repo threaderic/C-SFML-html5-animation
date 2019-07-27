@@ -18,7 +18,8 @@ elif env['PLATFORM'] == 'posix':
     env.Append(LIBS=['sfml-system', 'sfml-window', 'sfml-graphics'])
     env.Decider('content')
 
-src_files = Glob("./src/*/*.cpp")
+src_files = Glob("./src/*.cpp")
+
 objects=env.Object(source=src_files)
 
 def DefineProgram(name, main):

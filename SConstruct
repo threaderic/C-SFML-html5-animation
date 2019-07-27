@@ -1,6 +1,2 @@
 SConscript('ch02-02-event-demo/SConscript', variant_dir='build-scons/ch02-02-event-demo', duplicate=0)
-SConscript('ch02-03-mouse-events/SConscript', variant_dir='build-scons/ch02-03-mouse-events', duplicate=0)
-SConscript('ch02-04-mouse-position/SConscript', variant_dir='build-scons/ch02-04-mouse-position', duplicate=0)
-SConscript('ch02-06-keyboard-events/SConscript', variant_dir='build-scons/ch02-06-keyboard-events', duplicate=0)
-SConscript('ch02-07-key-codes/SConscript', variant_dir='build-scons/ch02-07-key-codes', duplicate=0)
-SConscript('ch15-14-collision-3d/SConscript', variant_dir='build-scons/ch15-14-collision-3d', duplicate=0)
+SConscript('ch03-03-bobbing-2/SConscript', variant_dir='build-scons/ch03-03-bobbing-2', duplicate=0)
