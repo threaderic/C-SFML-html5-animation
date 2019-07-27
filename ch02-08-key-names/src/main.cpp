@@ -5,6 +5,7 @@
 #endif
 
 #include <iostream>
+
 int main() 
 {
 	sf::Window window(sf::VideoMode(800,600), "Key Names", sf::Style::Titlebar | sf::Style::Close);

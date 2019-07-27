@@ -1,2 +1,1 @@
 SConscript('ch02-02-event-demo/SConscript', variant_dir='build-scons/ch02-02-event-demo', duplicate=0)
-SConscript('ch03-03-bobbing-2/SConscript', variant_dir='build-scons/ch03-03-bobbing-2', duplicate=0)
