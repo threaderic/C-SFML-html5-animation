@@ -32,5 +32,5 @@ def DefineProgram(name, main):
     env.AlwaysBuild(run)
     env.Default(target)
 
-DefineProgram('bin/ch03-11-mouse-distance', ['./src/main.cpp'])
+DefineProgram('bin/ch04-02-drawing-curves', ['./src/main.cpp'])
 
