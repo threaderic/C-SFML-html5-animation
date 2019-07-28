@@ -31,7 +31,12 @@ State: In-Progress.
 build total folder with scons
 1. install scons
 2. open terminal in the root folder of this project (same as README.md)
-3. tape "scons" <enter>
+3. tape "scons" <enter> (+eventually options "-j2", "-j3", or '-jn" for a use of 2 to "n" core to speed up the build process
 4. go to the build-scons folder/<folder of desired example>/bin/
 5. tape "./<name of the program>
 6. enjoy ;)
+
+Note 1: added new folder with new function ch15-15-3D-OpenGL ; ch15-16-collision-3d-OpenGL ; ch04-17-video-frames-sfeMovie-1
+ch04-17-video-frames-sfeMovie-2 ; ch04-17-video-frames-sfeMovie-3 
+
+--> I'll be also more than happy to receive help to add these in the CMake or Scons process for Windows, OSx or Android if possible ?

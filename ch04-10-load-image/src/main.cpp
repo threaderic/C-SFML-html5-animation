@@ -1,4 +1,8 @@
-#include <SFML/Graphics.hpp>
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
 
 int main()
 {
@@ -6,7 +10,7 @@ int main()
 	window.setFramerateLimit(1);
 
 	sf::Texture texture;
-	if (!texture.loadFromFile("res/picture.jpg"))
+	if (!texture.loadFromFile("ch04-10-load-image/res/picture2.jpg"))
 		return -1;
 
 	sf::Sprite sprite = sf::Sprite(texture);

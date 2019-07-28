@@ -1,5 +1,12 @@
-#include <SFML/Graphics.hpp>
-#include <sfeMovie\Movie.hpp>
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+    #include <sfeMovie\Movie.hpp>
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+    #include "../../external-libraries/sfeMovie/include/Movie.hpp"
+#endif
+
+
 #include <iostream>
 
 int main()
@@ -8,7 +15,7 @@ int main()
 	window.setFramerateLimit(60);
 
 	sfe::Movie movie;
-	if (!movie.openFromFile("Big_Buck_Bunny_Trailer_400p.ogv"))
+	if (!movie.openFromFile("ch04-12-video-frames/Source/ch04-12-video-frames/Big_Buck_Bunny_Trailer_400p.ogv"))
 		return 1;
 	
 	movie.setPosition(sf::Vector2f(0.0f, 0.0f));

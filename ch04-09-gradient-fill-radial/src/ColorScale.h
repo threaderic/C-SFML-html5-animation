@@ -32,11 +32,18 @@ Notes:
 Multiple fixes done so it can be compatible with SFML 2
 */
 
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include <SFML/Graphics/Color.hpp>
+    #include <SFML/Graphics.hpp>
+#elif __linux__
+    #include <SFML/Graphics/Color.hpp>
+    #include <SFML/Graphics.hpp>
+#endif
+
 #ifndef _COLOR_SCALE_
 #define _COLOR_SCALE_
 #include <map>
-#include <SFML/Graphics/Color.hpp>
-#include <SFML/Graphics.hpp>
+
 
 namespace InterpolationFunction
 {
