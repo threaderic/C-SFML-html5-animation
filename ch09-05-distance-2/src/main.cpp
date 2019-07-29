@@ -1,7 +1,13 @@
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
 #include <iostream>
 #include <cmath>
 #include <random>
-#include "SFML\Graphics.hpp"
+
 #include "Ball.h"
 
 int main() {
@@ -20,7 +26,7 @@ int main() {
     Ball ballB(0, 0, dist(mt) * 100, sf::Color::Red);
 
     sf::Font font;
-    if (!font.loadFromFile("res/cour.ttf")) {
+    if (!font.loadFromFile("ch09-01-object-hit-test/res/cour.ttf")) {
         std::cerr << "Error loading cour.ttf file" << std::endl;
         return -1;
     }

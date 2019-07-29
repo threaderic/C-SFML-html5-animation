@@ -1,5 +1,4 @@
 #include "Box.h"
-#include "SFML\Graphics.hpp"
 
 Box::Box(float x, float y, sf::Vector2f size, sf::Color color) {
     shape = sf::RectangleShape(size);

@@ -1,5 +1,11 @@
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
 #include <iostream>
-#include "SFML\Graphics.hpp"
+
 #include "Ball.h"
 #include "Utils.h"
 
@@ -17,7 +23,7 @@ int main() {
     std::vector<sf::Vertex> line;
 
     sf::Font font;
-    if(!font.loadFromFile("res/cour.ttf")){
+    if(!font.loadFromFile("ch09-01-object-hit-test/res/cour.ttf")){
         std::cerr << "Error loading cour.ttf file" << std::endl;
         return -1;
     }
