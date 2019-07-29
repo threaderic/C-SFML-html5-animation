@@ -1,5 +1,6 @@
 #include "Ball.h"
-#include "SFML\Graphics.hpp"
+
+
 
 Ball::Ball(float x, float y, float radius, sf::Color color) {
     shape = sf::CircleShape(radius);

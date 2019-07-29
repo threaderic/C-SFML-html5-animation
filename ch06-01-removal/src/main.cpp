@@ -1,6 +1,12 @@
-#include <SFML/Graphics.hpp>
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
 #include <iostream>
 #include <random>
+
 #include "Ball.h"
 
 const int NUM_BALLS = 10;
@@ -17,7 +23,7 @@ int main() {
     std::uniform_real_distribution<double> dist(0.0, 1.0);
 
     sf::Font font;
-    if(!font.loadFromFile("res/cour.ttf")){
+    if(!font.loadFromFile("ch06-01-removal/res/cour.ttf")){
         std::cout << "Error loading cour.ttf file" << std::endl;
         return -1;
     }

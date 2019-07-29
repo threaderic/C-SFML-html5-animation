@@ -21,7 +21,9 @@ int main()
 	float ay = 0;
 	float vx = 0;
 	float vy = 0;
-
+    
+    std::cout << "\n\naccelerate with left, bottom, top or right arrow !" << "\nEnjoy little boy/girl ;)\n";
+    
 	while (window.isOpen())
 	{
 		sf::Event event;
