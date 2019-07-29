@@ -32,4 +32,4 @@ def DefineProgram(name, main):
     env.AlwaysBuild(run)
     env.Default(target)
 
-DefineProgram('bin/ch08-03-easing-off', ['./src/main.cpp'])
+DefineProgram('bin/ch08-13-offset-spring', ['./src/main.cpp'])

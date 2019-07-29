@@ -32,4 +32,4 @@ def DefineProgram(name, main):
     env.AlwaysBuild(run)
     env.Default(target)
 
-DefineProgram('bin/ch06-07-friction-2', ['./src/main.cpp'])
+DefineProgram('bin/ch08-04-ease-to-mouse', ['./src/main.cpp'])
