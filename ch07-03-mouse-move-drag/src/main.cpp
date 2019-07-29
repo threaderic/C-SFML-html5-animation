@@ -1,5 +1,11 @@
-#include "SFML\Graphics.hpp"
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
 #include <iostream>
+
 #include "Utils.h"
 #include "Ball.h"
 
@@ -14,7 +20,7 @@ int main() {
 
     sf::Font font;
 
-    if (!font.loadFromFile("res/cour.ttf")) {
+    if (!font.loadFromFile("ch07-03-mouse-move-drag/res/cour.ttf")) {
         std::cout << "Cannot find cour.ttf file";
         return -1;
     }
