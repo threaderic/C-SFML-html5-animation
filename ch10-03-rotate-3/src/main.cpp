@@ -1,7 +1,13 @@
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
 #include <iostream>
 #include <cmath>
 #include <random>
-#include "SFML\Graphics.hpp"
+
 #include "Ball.h"
 
 void Move(Ball &ball, float cos, float sin, float centerX, float centerY) {
@@ -24,7 +30,7 @@ int main() {
     window.setFramerateLimit(60);
 
     sf::Font font;
-    if(!font.loadFromFile("res/cour.ttf")){
+    if(!font.loadFromFile("ch10-03-rotate-3/res/cour.ttf")){
         std::cerr << "Error loading cour.ttf file" << std::endl;
         return  -1;
     }

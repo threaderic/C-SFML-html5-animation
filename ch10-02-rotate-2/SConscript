@@ -1,0 +1,35 @@
+import os
+
+env = Environment()
+
+if env['PLATFORM'] == 'darwin':
+    env['CXX'] = 'clang++'
+    env['CCFLAGS'] = '-stdlib=libc++ '
+    env['LINKFLAGS'] = '-stdlib=libc++ '  
+elif env['PLATFORM'] == 'posix':
+    env['CXX'] = 'g++'
+    env.Append(LIBPATH='/usr/lib/x86_64-linux-gnu/')
+
+if env['PLATFORM'] == 'darwin':
+    #not correct for darwin platform
+    env.Append(CCFLAGS='-std=c++0x -g3 -Wall -Wextra -I/usr/include/ -I/usr/SFML/include/ ')
+elif env['PLATFORM'] == 'posix':    
+    env.Append(CCFLAGS='-std=c++0x -g3 -Wall -Wextra -I/usr/include/ -I/usr/SFML/include/ ')
+    env.Append(LIBS=['sfml-system', 'sfml-window', 'sfml-graphics'])
+    env.Decider('content')
+
+src_files = Glob("src/*.cpp")
+src_files += Glob("src/*/*.cpp")
+
+objects=env.Object(source=src_files)
+
+def DefineProgram(name, main):
+    target = env.Program(name, source = objects , CPPPATH = '.') #
+    env.Alias(name, target)
+    run = env.Command(name+".out",[],"./build/"+name, ENV = os.environ)
+    env.Alias(name+"-run", run)
+    env.Depends(run, target)
+    env.AlwaysBuild(run)
+    env.Default(target)
+
+DefineProgram('bin/ch10-02-rotate-2', ['./src/main.cpp'])
