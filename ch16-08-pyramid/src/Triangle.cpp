@@ -1,6 +1,4 @@
-#include "SFML\Graphics.hpp"
 #include "Triangle.h"
-#include "math.h"
 
 Triangle::Triangle(Point3d &a, Point3d &b, Point3d &c, sf::Color color) {
     pointA = &a;

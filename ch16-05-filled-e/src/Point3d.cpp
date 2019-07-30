@@ -1,6 +1,4 @@
-#include "SFML\Graphics.hpp"
 #include "Point3d.h"
-#include "math.h"
 
 Point3d::Point3d(float _x, float _y, float _z) {
     x = _x;
