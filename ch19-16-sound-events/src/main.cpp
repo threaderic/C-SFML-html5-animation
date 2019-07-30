@@ -1,5 +1,10 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+    #include <SFML/Audio.hpp>
+#endif
+
 #include <iostream>
 #include <random>
 #include "Ball.h"
@@ -14,12 +19,20 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(400, 400), "Sound Events", sf::Style::Titlebar | sf::Style::Close, context);
     window.setFramerateLimit(60);
 
+    
     sf::SoundBuffer buffer;
+    #if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
     if(!buffer.loadFromFile("res/boing.wav")){
         std::cerr << "Error loading boing.wav file" << std::endl;
         return -1;
     }
-
+    #elif __linux__
+    if(!buffer.loadFromFile("ch19-16-sound-events/res/boing.wav")){
+        std::cerr << "Error loading boing.wav file" << std::endl;
+        return -1;
+    }
+    #endif
+    
     sf::Sound sound;
     sound.setBuffer(buffer);
 
