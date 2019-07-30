@@ -1,8 +1,14 @@
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
 #include <iostream>
 #include <random>
 #include <algorithm>
-#include "SFML\Graphics.hpp"
-#include "ball3d.h"
+
+#include "Ball3d.h"
 
 float fl = 250,
         vpX = 0,
@@ -59,10 +65,18 @@ int main() {
     window.setFramerateLimit(60);
 
     sf::Font font;
-    if (!font.loadFromFile("res/cour.ttf")) {
+    #if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    
+    if(!font.loadFromFile("res/cour.ttf")){
         std::cerr << "Error loading cour.ttf file" << std::endl;
         return -1;
     }
+    #elif __linux__
+    if(!font.loadFromFile("ch14-01-one-segment/res/cour.ttf")){
+        std::cerr << "Error loading cour.ttf file" << std::endl;
+        return -1;
+    }
+    #endif
 
     sf::Text infoText;
     infoText.setFont(font);

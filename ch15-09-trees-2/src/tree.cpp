@@ -1,6 +1,4 @@
-#include "SFML\Graphics.hpp"
-#include "Tree.h"
-#include <iostream>
+#include "tree.h"
 
 Tree::Tree(float x, float y, float z, std::mt19937 &m, std::uniform_real_distribution<float> &t) {
     mainBranch = sf::ConvexShape(4);
