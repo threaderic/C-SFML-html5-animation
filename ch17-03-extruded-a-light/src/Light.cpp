@@ -1,6 +1,4 @@
-#include "SFML\Graphics.hpp"
 #include "Light.h"
-#include "math.h"
 
 Light::Light(float px, float py, float pz, float b){
     x = px;

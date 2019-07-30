@@ -1,6 +1,11 @@
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
 #include <iostream>
 #include <cmath>
-#include "SFML\Graphics.hpp"
 
 int main() {
     //You can turn off antialiasing if your graphics card doesn't support it

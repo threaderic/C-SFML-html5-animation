@@ -1,4 +1,3 @@
-#include "SFML\Graphics.hpp"
 #include "Ball3d.h"
 
 Ball3d::Ball3d(float x, float y, float z, float radius, sf::Color color) {

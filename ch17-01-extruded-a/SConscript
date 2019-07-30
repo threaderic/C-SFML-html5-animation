@@ -31,5 +31,5 @@ def DefineProgram(name, main):
     env.AlwaysBuild(run)
     env.Default(target)
 
-DefineProgram('bin/ch15-15-3D-OpenGL', ['./src/main.cpp'])
+DefineProgram('bin/ch17-01-extruded-a', ['./src/main.cpp'])
 

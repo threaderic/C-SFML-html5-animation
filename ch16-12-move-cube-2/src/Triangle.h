@@ -11,7 +11,6 @@
 #include "Point3d.h"
 #include "math.h"
 
-
 class Triangle
 {
 public:
