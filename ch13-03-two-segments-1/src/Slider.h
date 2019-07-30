@@ -1,6 +1,17 @@
 #pragma once
-#include "SFML\Graphics.hpp"
+
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
+#include <cmath>
+#include <iostream>
+#include <algorithm>
 #include <string>
+
+#include "Utils.h"
 
 class Slider
 {

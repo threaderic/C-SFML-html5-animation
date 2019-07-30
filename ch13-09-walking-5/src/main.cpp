@@ -1,6 +1,12 @@
+#if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    #include "SFML\Graphics.hpp"
+#elif __linux__
+    #include <SFML/Graphics.hpp>
+#endif
+
 #include <iostream>
 #include <cmath>
-#include "SFML\Graphics.hpp"
+
 #include "Segment.h"
 #include "Slider.h"
 
@@ -28,10 +34,18 @@ int main() {
     window.setFramerateLimit(60);
 
     sf::Font font;
+    #if _WIN32 //for both 32 and 64 bit environnemnts -- Pre-defined Compiler Macros -- sourceforge
+    
     if(!font.loadFromFile("res/cour.ttf")){
         std::cerr << "Error loading cour.ttf file" << std::endl;
         return -1;
     }
+    #elif __linux__
+    if(!font.loadFromFile("ch13-03-two-segments-1/res/cour.ttf")){
+        std::cerr << "Error loading cour.ttf file" << std::endl;
+        return -1;
+    }
+    #endif
 
     sf::Text infoText;
     infoText.setFont(font);

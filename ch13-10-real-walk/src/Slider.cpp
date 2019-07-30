@@ -1,8 +1,4 @@
-#include <cmath>
-#include <iostream>
-#include <algorithm>
 #include "Slider.h"
-#include "Utils.h"
 
 Slider::Slider(float min, float max, float value) {
     this->min = min;

@@ -1,6 +1,4 @@
-#include <cmath>
 #include "Segment.h"
-#include "Utils.h"
 
 Segment::Segment(float width, float height, sf::Color color) {
     this->width = width;
